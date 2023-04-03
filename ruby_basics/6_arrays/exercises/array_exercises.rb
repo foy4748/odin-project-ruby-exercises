@@ -49,13 +49,7 @@ end
 
 def array_difference(original, comparison)
   # return an array of elements from the original array that are not in the comparison array
-  result = []
-  for item in original do
-    unless comparison.include?(item)
-      result.push(item)
-    end
-  end
-  return result
+  original.intersection(original - comparison)
 end
 
 def empty_array?(array)
