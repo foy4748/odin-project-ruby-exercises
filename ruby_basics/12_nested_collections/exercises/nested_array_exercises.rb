@@ -13,10 +13,7 @@ def blank_seating_chart(number_of_rows, seats_per_row)
   # change with it
   result = []
   number_of_rows.times do |i|
-    row = []
-    seats_per_row.times do |j|
-      row.push(nil)
-    end
+    row = Array.new(seats_per_row,nil)
     result.push(row)
   end
   result
@@ -56,12 +53,7 @@ def count_empty_seats(chart)
   # take a chart and return the number of empty (nil) seats in it
   flattened = chart.flatten
   # NOTE: `chart` should **not** be mutated
-  empty_seats = 0
-  flattened.each() do |itm|
-    if itm == nil
-      empty_seats += 1
-    end
-  end
+  empty_seats = flattened.count(nil)
   empty_seats
 end
 
